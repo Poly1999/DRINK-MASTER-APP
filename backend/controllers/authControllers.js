@@ -44,7 +44,7 @@ const signup = async (req, res) => {
 
 // login
 
-const signin = async (req, res) => {
+const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -80,7 +80,7 @@ const signin = async (req, res) => {
 
 // logout
 
-const signout = async (req, res) => {
+const logout = async (req, res) => {
   try {
     await User.findByIdAndUpdate(req.user._id, { token: null });
     res.status(204).json();
@@ -89,4 +89,4 @@ const signout = async (req, res) => {
   }
 };
 
-module.exports = { signup, signin, signout };
+module.exports = { signup, login, logout };

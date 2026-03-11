@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PublicRoute from './components/PublicRoute';
 import PrivateRoute from './components/PrivateRoute';
+import WelcomePage from './pages/WelcomePage/WelcomePage';
 
 function App() {
   return (
@@ -9,15 +10,15 @@ function App() {
         {/* PUBLIC ROUTES  */}
         <Route
           path='/welcome'
-          element={<PublicRoute component={() => <div>Welcome</div>} />}
+          element={<PublicRoute component={WelcomePage} />}
         />
         <Route
           path='/signup'
           element={<PublicRoute component={() => <div>Signup</div>} />}
         />
         <Route
-          path='/signin'
-          element={<PublicRoute component={() => <div>Signin</div>} />}
+          path='/login'
+          element={<PublicRoute component={() => <div>Login</div>} />}
         />
 
         {/* PRIVATE ROUTES  */}
