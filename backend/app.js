@@ -5,6 +5,8 @@ require('./helpers/cloudinary');
 
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const filterRoutes = require('./routes/filterRoutes');
+const drinkRoutes = require('./routes/drinkRoutes');
 
 const app = express();
 
@@ -15,6 +17,8 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/filters', filterRoutes);
+app.use('/api/drinks', drinkRoutes);
 
 // error handler
 app.use((err, req, res, next) => {
