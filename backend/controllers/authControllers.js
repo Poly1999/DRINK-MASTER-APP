@@ -67,10 +67,10 @@ const signin = async (req, res) => {
     res.status(200).json({
       token,
       user: {
-        name: newUser.name,
-        email: newUser.email,
-        birthday: newUser.birthday,
-        avatar: newUser.avatar,
+        name: user.name,
+        email: user.email,
+        birthday: user.birthday,
+        avatar: user.avatar,
       },
     });
   } catch (error) {
