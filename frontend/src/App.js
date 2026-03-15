@@ -3,6 +3,7 @@ import PublicRoute from './components/PublicRoute';
 import PrivateRoute from './components/PrivateRoute';
 import WelcomePage from './pages/WelcomePage/WelcomePage';
 import SignupPage from './pages/SignupPage/SignupPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 function App() {
   return (
@@ -17,10 +18,7 @@ function App() {
           path='/signup'
           element={<PublicRoute component={SignupPage} />}
         />
-        <Route
-          path='/login'
-          element={<PublicRoute component={() => <div>Login</div>} />}
-        />
+        <Route path='/login' element={<PublicRoute component={LoginPage} />} />
 
         {/* PRIVATE ROUTES  */}
         <Route

@@ -48,7 +48,7 @@
   opacity: 0.85;
 }
 
-.login-button {
+.signin-button {
   z-index: 2;
   padding: 18px 44px;
   background-color: transparent;
@@ -61,6 +61,6 @@
   transition: opacity 0.2s;
 }
 
-.login-button:hover {
+.signin-button:hover {
   opacity: 0.75;
 }

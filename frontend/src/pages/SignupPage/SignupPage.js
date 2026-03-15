@@ -105,6 +105,7 @@ const SignupPage = () => {
               <input
                 {...register('email')}
                 className='signup-input'
+                type='email'
                 placeholder='example@gmail.com'
               />
               {errors.email && (
@@ -125,12 +126,16 @@ const SignupPage = () => {
             </div>
           </div>
 
-          <button type='submit' className='signup-button' disabled={isLoading}>
+          <button
+            type='submit'
+            className='signup-page-button'
+            disabled={isLoading}
+          >
             {isLoading ? 'Loading...' : 'Sign Up'}
           </button>
         </form>
 
-        <Link to='/login' className='signin-button'>
+        <Link to='/login' className='signin-page-button'>
           Sign In
         </Link>
       </div>
