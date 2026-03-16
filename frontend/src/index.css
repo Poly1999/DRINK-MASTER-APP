@@ -1,13 +1,46 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-main: 'Manrope', sans-serif;
+}
+
+/* ТЕМНА ТЕМА — за замовчуванням */
+body {
+  font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --bg-color: #0a0a11;
+  --dark-blue: #161f37;
+  --dirty-blue: #434d67;
+  --blue-color: #4070cd;
+  --light-green: #bce6d2;
+  --light-primary: #f3f3f3;
+  --input-bg: transparent;
+  background-color: var(--bg-color);
+  color: var(--light-primary);
+}
+
+/* СВІТЛА ТЕМА */
+body.light-theme {
+  --bg-color: #f3f3f3;
+  --biege-color: #e0e0e0;
+  --dirty-grey: #a0a8b8;
+  --blue-color: #4070cd;
+  --light-green: #bce6d2;
+  --dark-blue: #161f37;
+  --dark-primary: #0a0a11;
+  --input-bg: transparent;
+  background-color: var(--bg-color);
+  color: var(--dark-primary);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

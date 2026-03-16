@@ -4,6 +4,8 @@ import PrivateRoute from './components/PrivateRoute';
 import WelcomePage from './pages/WelcomePage/WelcomePage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import SharedLayout from './components/SharedLayout/SharedLayout';
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
   return (
@@ -21,30 +23,29 @@ function App() {
         <Route path='/login' element={<PublicRoute component={LoginPage} />} />
 
         {/* PRIVATE ROUTES  */}
-        <Route
-          path='/home'
-          element={<PrivateRoute component={() => <div>Home</div>} />}
-        />
-        <Route
-          path='/drinks'
-          element={<PrivateRoute component={() => <div>Drinks</div>} />}
-        />
-        <Route
-          path='/add'
-          element={<PrivateRoute component={() => <div>Add Drink</div>} />}
-        />
-        <Route
-          path='/my'
-          element={<PrivateRoute component={() => <div>My Drinks</div>} />}
-        />
-        <Route
-          path='/favorites'
-          element={<PrivateRoute component={() => <div>Favorites</div>} />}
-        />
-        <Route
-          path='/drink/:id'
-          element={<PrivateRoute component={() => <div>Drink Page</div>} />}
-        />
+        <Route path='/' element={<PrivateRoute component={SharedLayout} />}>
+          <Route path='home' element={<HomePage />} />
+          <Route
+            path='drinks'
+            element={<PrivateRoute component={() => <div>Drinks</div>} />}
+          />
+          <Route
+            path='add'
+            element={<PrivateRoute component={() => <div>Add Drink</div>} />}
+          />
+          <Route
+            path='my'
+            element={<PrivateRoute component={() => <div>My Drinks</div>} />}
+          />
+          <Route
+            path='favorites'
+            element={<PrivateRoute component={() => <div>Favorites</div>} />}
+          />
+          <Route
+            path='drink/:id'
+            element={<PrivateRoute component={() => <div>Drink Page</div>} />}
+          />
+        </Route>
 
         {/* REDIRECT  */}
         <Route path='*' element={<Navigate to='/welcome' />} />
