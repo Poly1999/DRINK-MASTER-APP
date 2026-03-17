@@ -1,5 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { signupAPI, loginAPI, logoutAPI } from '../api/auth';
+import {
+  signupAPI,
+  loginAPI,
+  logoutAPI,
+  refreshUserAPI,
+  updateUserAPI,
+} from '../api/auth';
 
 export const signup = createAsyncThunk(
   'auth/signup',
@@ -31,6 +37,28 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    try {
+      return await refreshUserAPI();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
+export const updateUser = createAsyncThunk(
+  'auth/update',
+  async (userData, thunkAPI) => {
+    try {
+      return await updateUserAPI(userData);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -38,6 +66,7 @@ const authSlice = createSlice({
     token: null,
     isLoggedIn: false,
     isLoading: false,
+    isRefreshing: false,
     error: null,
   },
   reducers: {},
@@ -58,6 +87,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
+
       // Login
       .addCase(login.pending, state => {
         state.isLoading = true;
@@ -73,11 +103,39 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
+
       // Logout
       .addCase(logout.fulfilled, state => {
         state.user = null;
         state.token = null;
         state.isLoggedIn = false;
+      })
+
+      // Refresh
+      .addCase(refreshUser.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUser.rejected, state => {
+        state.isRefreshing = false;
+        state.isLoggedIn = false;
+      })
+
+      // Update user
+      .addCase(updateUser.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload.user;
+      })
+      .addCase(updateUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });
