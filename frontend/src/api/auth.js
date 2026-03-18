@@ -16,3 +16,13 @@ export const logoutAPI = async () => {
   await instance.post('/auth/logout');
   clearAuthHeader();
 };
+
+export const refreshUserAPI = async () => {
+  const { data } = await instance.get('/users/current');
+  return data;
+};
+
+export const updateUserAPI = async userData => {
+  const { data } = await instance.patch('/users/update', userData);
+  return data;
+};
