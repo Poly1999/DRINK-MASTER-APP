@@ -10,7 +10,7 @@
   --font-main: 'Manrope', sans-serif;
 }
 
-/* ТЕМНА ТЕМА — за замовчуванням */
+/* dark theme */
 body {
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
@@ -22,11 +22,11 @@ body {
   --light-green: #bce6d2;
   --light-primary: #f3f3f3;
   --input-bg: transparent;
-  background-color: var(--bg-color);
+  background-color: var(--bg-color-dark);
   color: var(--light-primary);
 }
 
-/* СВІТЛА ТЕМА */
+/* light theme */
 body.light-theme {
   --bg-color: #f3f3f3;
   --biege-color: #e0e0e0;
@@ -36,7 +36,7 @@ body.light-theme {
   --dark-blue: #161f37;
   --dark-primary: #0a0a11;
   --input-bg: transparent;
-  background-color: var(--bg-color);
+  background-color: var(--bg-color-light);
   color: var(--dark-primary);
 }
 
