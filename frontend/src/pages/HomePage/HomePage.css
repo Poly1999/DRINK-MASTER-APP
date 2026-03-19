@@ -1,0 +1,226 @@
+.home-page {
+  padding-top: 80px;
+}
+
+/* ---- HERO ---- */
+.hero {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+}
+
+.ellipse-hero-before {
+  position: absolute;
+  left: -50px;
+  top: -100px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ellipse-after-yellow {
+  position: absolute;
+  left: 700px;
+  top: 250px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ellipse-after-blue {
+  position: absolute;
+  left: 1150px;
+  top: 200px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-content {
+  margin: 185px 0 140px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 68px;
+  max-width: 715px;
+  color: var(--light-primary);
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 28px;
+}
+
+.hero-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(243, 243, 243, 1);
+  font-family: 'Manrope', sans-serif;
+  line-height: 24px;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.hero-btn {
+  padding: 18px 44px;
+  background-color: var(--light-primary);
+  color: var(--dark-blue);
+  border-radius: 40px;
+  line-height: 18px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Manrope', sans-serif;
+  transition: opacity 0.5s;
+  border: 1px solid transparent;
+}
+
+.hero-btn:hover {
+  border: 1px solid rgba(243, 243, 243, 1);
+  color: var(--light-primary);
+  background: transparent;
+}
+
+.hero-image {
+  width: 360px;
+  height: 445px;
+  margin: 128px 135px 80px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- PREVIEW DRINKS ---- */
+.preview-drinks {
+  padding: 80px 100px;
+}
+
+.preview-category {
+  margin-bottom: 80px;
+}
+
+.preview-category-title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 44px;
+  color: var(--light-primary);
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 40px;
+}
+
+.preview-drinks-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.preview-drink-card {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  max-width: 400px;
+}
+
+.preview-drink-img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.preview-drink-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+}
+
+.preview-drink-name {
+  color: var(--light-primary);
+  font-size: 14px;
+  font-family: 'Manrope', sans-serif;
+}
+
+.preview-drink-link {
+  color: var(--light-primary);
+  font-size: 12px;
+  font-family: 'Manrope', sans-serif;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.preview-drink-link:hover {
+  opacity: 1;
+}
+
+/* ---- OTHER DRINKS BTN ---- */
+.other-drinks-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.other-drinks-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  border: 1px solid rgba(243, 243, 243, 0.5);
+  border-radius: 40px;
+  color: var(--light-primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Manrope', sans-serif;
+  transition: all 0.2s;
+}
+
+.other-drinks-btn:hover {
+  background-color: var(--light-primary);
+  color: var(--dark-blue);
+}
+
+body.light-theme .home-page {
+  background-color: var(--light-primary);
+}
+
+body.light-theme .hero-title {
+  color: #0a0a11;
+}
+
+body.light-theme .hero-text {
+  color: #0a0a11;
+}
+
+body.light-theme .hero-btn {
+  color: var(--light-primary);
+  background-color: #161f37;
+  border: none;
+}
+
+body.light-theme .hero-btn:hover {
+  color: #161f37;
+  border: 1px solid #161f37;
+  background: transparent;
+}
+
+body.light-theme .preview-category-title {
+  color: #0a0a11;
+}
+
+body.light-theme .preview-drink-name {
+  color: #0a0a11;
+}
+
+body.light-theme .preview-drink-link {
+  color: #0a0a11;
+}
+
+body.light-theme .other-drinks-btn {
+  color: #161f37;
+  border: 1px solid #161f37;
+  background: transparent;
+}
+
+body.light-theme .other-drinks-btn:hover {
+  color: var(--light-primary);
+  background-color: #161f37;
+  border: 1px solid transparent;
+}
