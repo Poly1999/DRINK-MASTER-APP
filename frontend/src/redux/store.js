@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './authSlice';
+import drinksReducer from './drinksSlice';
 import { setAuthHeader } from '../api/axios';
 
 const token = localStorage.getItem('token');
@@ -8,6 +9,7 @@ if (token) setAuthHeader(token);
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    drinks: drinksReducer,
   },
 });
 

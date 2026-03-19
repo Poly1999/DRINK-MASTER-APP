@@ -14,18 +14,55 @@ const isAdult = birthday => {
 const getMainPage = async (req, res) => {
   try {
     const adult = isAdult(req.user.birthday);
-    const alcoholicFilter = adult ? {} : { alcoholic: ' Non alcoholic' };
+    const alcoholicFilter = adult ? {} : { alcoholic: 'Non alcoholic' };
+
+    const featuredIds = {
+      'Ordinary Drink': [
+        '639b6de9ff77d221f190c67e',
+        '639b6de9ff77d221f190c5f0',
+        '639b6de9ff77d221f190c69c',
+
+        ,
+      ],
+      Cocktail: [
+        '639b6de9ff77d221f190c685',
+        '639b6de9ff77d221f190c576',
+        '639b6de9ff77d221f190c552',
+      ],
+      Shake: [
+        '639b6de9ff77d221f190c628',
+        '639b6de9ff77d221f190c632',
+        '639b6de9ff77d221f190c563',
+      ],
+      'Other/Unknown': [
+        '639b6de9ff77d221f190c68a',
+        '639b6de9ff77d221f190c566',
+        '639b6de9ff77d221f190c54c',
+      ],
+    };
 
     const categories = ['Ordinary Drink', 'Cocktail', 'Shake', 'Other/Unknown'];
 
     const drinks = await Promise.all(
       categories.map(async category => {
-        const items = await Drink.find({ category, ...alcoholicFilter })
-          .sort({ createdAt: -1 })
-          .limit(3);
+        const ids = featuredIds[category];
+        let items;
+
+        if (ids.length > 0) {
+          items = await Drink.find({
+            _id: { $in: ids },
+            ...alcoholicFilter,
+          });
+        } else {
+          items = await Drink.find({ category, ...alcoholicFilter })
+            .sort({ createdAt: -1 })
+            .limit(3);
+        }
+
         return { category, drinks: items };
       }),
     );
+
     res.status(200).json({ drinks });
   } catch (error) {
     res.status(500).json({ message: error.message });

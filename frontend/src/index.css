@@ -22,7 +22,7 @@ body {
   --light-green: #bce6d2;
   --light-primary: #f3f3f3;
   --input-bg: transparent;
-  background-color: var(--bg-color-dark);
+  background-color: var(--bg-color);
   color: var(--light-primary);
 }
 
@@ -36,7 +36,7 @@ body.light-theme {
   --dark-blue: #161f37;
   --dark-primary: #0a0a11;
   --input-bg: transparent;
-  background-color: var(--bg-color-light);
+  background-color: var(--bg-color);
   color: var(--dark-primary);
 }
 

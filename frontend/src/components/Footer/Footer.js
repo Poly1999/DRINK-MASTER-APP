@@ -92,7 +92,7 @@ const Footer = () => {
 
       {/* bottom side */}
       <div className='footer-bottom'>
-        <p className='footer-copy'>©2023 Drink Master. All rights reserved.</p>
+        <p className='footer-copy'>©2026 Drink Master. All rights reserved.</p>
         <div className='footer-links'>
           <a href='/privacy' className='footer-bottom-links'>
             Privacy Policy
