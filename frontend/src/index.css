@@ -10,6 +10,10 @@
   --font-main: 'Manrope', sans-serif;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 /* dark theme */
 body {
   font-family: var(--font-main);
