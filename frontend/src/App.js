@@ -9,6 +9,7 @@ import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import HomePage from './pages/HomePage/HomePage';
+import DrinksPage from './pages/DrinksPage/DrinksPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,10 +39,7 @@ function App() {
         {/* PRIVATE ROUTES  */}
         <Route path='/' element={<PrivateRoute component={SharedLayout} />}>
           <Route path='home' element={<HomePage />} />
-          <Route
-            path='drinks'
-            element={<PrivateRoute component={() => <div>Drinks</div>} />}
-          />
+          <Route path='drinks' element={<DrinksPage />} />
           <Route
             path='add'
             element={<PrivateRoute component={() => <div>Add Drink</div>} />}

@@ -1,0 +1,126 @@
+.drinks-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+/* ---- Пошуковий рядок ---- */
+.search-form {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(243, 243, 243, 0.2);
+  border-radius: 40px;
+  padding: 10px 18px;
+  gap: 8px;
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--light-primary);
+  font-size: 14px;
+  font-family: 'Manrope', sans-serif;
+  width: 160px;
+}
+
+.search-input::placeholder {
+  color: rgba(243, 243, 243, 0.4);
+}
+
+.search-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ---- Селекти ---- */
+.select-wrapper {
+  position: relative;
+}
+
+.select-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid rgba(243, 243, 243, 0.2);
+  border-radius: 40px;
+  background: transparent;
+  color: var(--light-primary);
+  font-size: 16px;
+  font-family: 'Manrope', sans-serif;
+  cursor: pointer;
+  min-width: 200px;
+  transition: all 0.2s;
+}
+
+.select-btn.open {
+  background-color: #1c2747;
+  border-color: #1c2747;
+  border-radius: 40px;
+}
+
+.chevron {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s;
+}
+
+.chevron-up {
+  transform: rotate(180deg);
+}
+
+.select-dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #1c2747;
+  border-radius: 16px;
+  padding: 16px 0;
+  list-style: none;
+  z-index: 100;
+  width: 100%;
+  max-height: 350px;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.select-dropdown li {
+  padding: 12px 24px;
+  color: rgba(243, 243, 243, 0.7);
+  font-size: 16px;
+  font-family: 'Manrope', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.select-dropdown li:hover {
+  color: #f3f3f3;
+}
+
+.select-dropdown li.selected {
+  color: #f3f3f3;
+  font-weight: 700;
+}
+
+/* ---- Світла тема ---- */
+body.light-theme .search-input {
+  color: #0a0a11;
+}
+
+body.light-theme .search-input::placeholder {
+  color: rgba(10, 10, 17, 0.4);
+}
+
+body.light-theme .search-form {
+  border-color: rgba(10, 10, 17, 0.2);
+}
+
+body.light-theme .select-btn {
+  color: #0a0a11;
+  border-color: rgba(10, 10, 17, 0.2);
+}
