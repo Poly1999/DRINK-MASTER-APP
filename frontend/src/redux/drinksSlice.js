@@ -13,7 +13,6 @@ export const getMainPage = createAsyncThunk(
   },
 );
 
-// search cocktails with filters
 export const searchDrinks = createAsyncThunk(
   'drinks/search',
   async (
@@ -31,7 +30,6 @@ export const searchDrinks = createAsyncThunk(
   },
 );
 
-// get list of categories
 export const getCategories = createAsyncThunk(
   'drinks/getCategories',
   async (_, thunkAPI) => {
@@ -44,12 +42,47 @@ export const getCategories = createAsyncThunk(
   },
 );
 
-// get list of ingredients
 export const getIngredients = createAsyncThunk(
   'drinks/getIngredients',
   async (_, thunkAPI) => {
     try {
       const { data } = await instance.get('/filters/ingredients');
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
+export const getDrinkById = createAsyncThunk(
+  'drinks/getDrinkById',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await instance.get(`/drinks/${id}`);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
+export const addFavorite = createAsyncThunk(
+  'drinks/addFavorite',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await instance.post(`/drinks/favorite/add/${id}`);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
+export const removeFavorite = createAsyncThunk(
+  'drinks/removeFavorite',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await instance.delete(`/drinks/favorite/remove/${id}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
@@ -66,13 +99,13 @@ const drinksSlice = createSlice({
     currentPage: 1,
     categories: [],
     ingredients: [],
+    currentDrink: null,
     isLoading: false,
     error: null,
   },
   reducers: {},
   extraReducers: builder => {
     builder
-      // getMainPage
       .addCase(getMainPage.pending, state => {
         state.isLoading = true;
       })
@@ -84,8 +117,6 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-
-      // searchDrinks
       .addCase(searchDrinks.pending, state => {
         state.isLoading = true;
       })
@@ -99,15 +130,29 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-
-      // getCategories
       .addCase(getCategories.fulfilled, (state, action) => {
         state.categories = action.payload.categories;
       })
-
-      // getIngredients
       .addCase(getIngredients.fulfilled, (state, action) => {
         state.ingredients = action.payload.ingredients;
+      })
+      .addCase(getDrinkById.pending, state => {
+        state.isLoading = true;
+        state.currentDrink = null;
+      })
+      .addCase(getDrinkById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.currentDrink = action.payload.drink;
+      })
+      .addCase(getDrinkById.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(addFavorite.fulfilled, state => {
+        state.isLoading = false;
+      })
+      .addCase(removeFavorite.fulfilled, state => {
+        state.isLoading = false;
       });
   },
 });

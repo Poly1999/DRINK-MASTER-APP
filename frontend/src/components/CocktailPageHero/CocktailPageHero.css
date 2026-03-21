@@ -1,0 +1,92 @@
+.cocktail-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 100px;
+  position: relative;
+  min-height: 400px;
+}
+
+.cocktail-hero-content {
+  max-width: 500px;
+  z-index: 1;
+}
+
+.cocktail-hero-title {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 68px;
+  color: var(--light-primary);
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 12px;
+}
+
+.cocktail-hero-meta {
+  font-size: 14px;
+  color: rgba(243, 243, 243, 0.5);
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 24px;
+}
+
+.cocktail-hero-description {
+  font-size: 16px;
+  color: rgba(243, 243, 243, 0.8);
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 400px;
+}
+
+.cocktail-hero-btn {
+  padding: 14px 32px;
+  background-color: transparent;
+  color: var(--light-primary);
+  border: 1px solid rgba(243, 243, 243, 0.5);
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Manrope', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cocktail-hero-btn:hover {
+  background-color: var(--light-primary);
+  color: var(--dark-blue);
+}
+
+.cocktail-hero-image {
+  width: 400px;
+  height: 400px;
+  flex-shrink: 0;
+}
+
+.cocktail-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ---- light theme ---- */
+body.light-theme .cocktail-hero-title {
+  color: #0a0a11;
+}
+
+body.light-theme .cocktail-hero-meta {
+  color: rgba(10, 10, 17, 0.5);
+}
+
+body.light-theme .cocktail-hero-description {
+  color: rgba(10, 10, 17, 0.8);
+}
+
+body.light-theme .cocktail-hero-btn {
+  color: #0a0a11;
+  border-color: rgba(10, 10, 17, 0.5);
+}
+
+body.light-theme .cocktail-hero-btn:hover {
+  background-color: #0a0a11;
+  color: #f3f3f3;
+}

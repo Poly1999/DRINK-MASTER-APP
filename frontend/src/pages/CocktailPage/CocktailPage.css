@@ -1,0 +1,13 @@
+.cocktail-page {
+  padding-top: 80px;
+}
+
+.cocktail-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: var(--light-primary);
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+}
