@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import HomePage from './pages/HomePage/HomePage';
 import DrinksPage from './pages/DrinksPage/DrinksPage';
+import CocktailPage from './pages/CocktailPage/CocktailPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,10 +41,7 @@ function App() {
         <Route path='/' element={<PrivateRoute component={SharedLayout} />}>
           <Route path='home' element={<HomePage />} />
           <Route path='drinks' element={<DrinksPage />} />
-          <Route
-            path='add'
-            element={<PrivateRoute component={() => <div>Add Drink</div>} />}
-          />
+          <Route path='add' element={<div>Add Drink</div>} />
           <Route
             path='my'
             element={<PrivateRoute component={() => <div>My Drinks</div>} />}
@@ -52,10 +50,7 @@ function App() {
             path='favorites'
             element={<PrivateRoute component={() => <div>Favorites</div>} />}
           />
-          <Route
-            path='drink/:id'
-            element={<PrivateRoute component={() => <div>Drink Page</div>} />}
-          />
+          <Route path='drink/:id' element={<CocktailPage />} />
         </Route>
 
         {/* REDIRECT  */}

@@ -17,12 +17,12 @@ const {
 router.get('/mainpage', authenticate, getMainPage);
 router.get('/popular', authenticate, getPopular);
 router.get('/search', authenticate, searchDrinks);
-router.get('/own', authenticate, getDrinkById);
-router.get('/favorite', authenticate, getOwnDrink);
-router.get('/:id', authenticate, removeOwnDrink);
-router.get('/own/add', authenticate, getOwnDrinks);
-router.get('/own/remove/:id', authenticate, addFavorite);
-router.get('/favorite/add/:id', authenticate, removeFavorite);
-router.get('/favorite/remove/:id', authenticate, getFavorites);
+router.get('/own', authenticate, getOwnDrinks);
+router.get('/favorite', authenticate, getFavorites);
+router.post('/own/add', authenticate, getOwnDrink);
+router.delete('/own/remove/:id', authenticate, removeOwnDrink);
+router.post('/favorite/add/:id', authenticate, addFavorite);
+router.delete('/favorite/remove/:id', authenticate, removeFavorite);
+router.get('/:id', authenticate, getDrinkById);
 
 module.exports = router;
