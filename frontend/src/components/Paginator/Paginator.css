@@ -1,0 +1,75 @@
+.paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 0;
+}
+
+.paginator-arrow {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.paginator-arrow img {
+  width: 8px;
+  height: 8px;
+}
+
+.paginator-arrow:hover:not(:disabled) {
+  opacity: 1;
+}
+
+.paginator-arrow:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.paginator-page {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: rgba(243, 243, 243, 0.5);
+  font-size: 14px;
+  font-family: 'Manrope', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.paginator-page:hover {
+  color: var(--light-primary);
+}
+
+.paginator-page.active {
+  background-color: #1c2747;
+  color: #f3f3f3;
+  font-weight: 600;
+  border-radius: 50%;
+}
+
+/* ---- Світла тема ---- */
+body.light-theme .paginator-arrow img {
+  filter: invert(1);
+}
+
+body.light-theme .paginator-page {
+  color: rgba(10, 10, 17, 0.5);
+}
+
+body.light-theme .paginator-page.active {
+  background-color: #1c2747;
+  color: #f3f3f3;
+}

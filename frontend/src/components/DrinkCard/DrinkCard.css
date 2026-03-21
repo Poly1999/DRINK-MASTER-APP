@@ -1,0 +1,51 @@
+.drink-card {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.drink-card-img {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.drink-card:hover .drink-card-img {
+  transform: scale(1.03);
+}
+
+.drink-card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+}
+
+.drink-card-name {
+  color: var(--light-primary);
+  font-size: 14px;
+  font-family: 'Manrope', sans-serif;
+}
+
+.drink-card-link {
+  color: var(--light-primary);
+  font-size: 12px;
+  font-family: 'Manrope', sans-serif;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.drink-card-link:hover {
+  opacity: 1;
+}
+
+/* ---- Світла тема ---- */
+body.light-theme .drink-card-name {
+  color: #0a0a11;
+}
+
+body.light-theme .drink-card-link {
+  color: #0a0a11;
+}
