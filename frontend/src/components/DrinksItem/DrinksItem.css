@@ -1,0 +1,122 @@
+.drinks-item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.drinks-item-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.drinks-item-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.drinks-item-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--light-primary);
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 4px;
+}
+
+.drinks-item-alcoholic {
+  font-size: 12px;
+  color: rgba(243, 243, 243, 0.5);
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 12px;
+}
+
+.drinks-item-description {
+  font-size: 14px;
+  color: rgba(243, 243, 243, 0.7);
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.drinks-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.drinks-item-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid rgba(243, 243, 243, 0.5);
+  border-radius: 40px;
+  color: var(--light-primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Manrope', sans-serif;
+  transition: all 0.2s;
+}
+
+.drinks-item-btn:hover {
+  background-color: var(--light-primary);
+  color: var(--dark-blue);
+}
+
+.drinks-item-delete {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(243, 243, 243, 0.2);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+}
+
+.drinks-item-delete:hover {
+  border-color: rgba(243, 243, 243, 0.6);
+}
+
+.drinks-item-delete img {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---- light theme ---- */
+body.light-theme .drinks-item-name {
+  color: #0a0a11;
+}
+
+body.light-theme .drinks-item-alcoholic {
+  color: rgba(10, 10, 17, 0.5);
+}
+
+body.light-theme .drinks-item-description {
+  color: rgba(10, 10, 17, 0.7);
+}
+
+body.light-theme .drinks-item-btn {
+  color: #0a0a11;
+  border-color: rgba(10, 10, 17, 0.5);
+}
+
+body.light-theme .drinks-item-btn:hover {
+  background-color: #0a0a11;
+  color: #f3f3f3;
+}
+
+body.light-theme .drinks-item-delete {
+  border-color: rgba(10, 10, 17, 0.2);
+}

@@ -12,6 +12,8 @@ import HomePage from './pages/HomePage/HomePage';
 import DrinksPage from './pages/DrinksPage/DrinksPage';
 import CocktailPage from './pages/CocktailPage/CocktailPage';
 import AddDrinkPage from './pages/AddDrinkPage/AddDrinkPage';
+import MyDrinksPage from './pages/MyDrinksPage/MyDrinksPage';
+import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -43,14 +45,8 @@ function App() {
           <Route path='home' element={<HomePage />} />
           <Route path='drinks' element={<DrinksPage />} />
           <Route path='add' element={<AddDrinkPage />} />
-          <Route
-            path='my'
-            element={<PrivateRoute component={() => <div>My Drinks</div>} />}
-          />
-          <Route
-            path='favorites'
-            element={<PrivateRoute component={() => <div>Favorites</div>} />}
-          />
+          <Route path='my' element={<MyDrinksPage />} />
+          <Route path='favorites' element={<FavoritesPage />} />
           <Route path='drink/:id' element={<CocktailPage />} />
         </Route>
 

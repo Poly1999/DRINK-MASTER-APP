@@ -82,8 +82,8 @@ export const removeFavorite = createAsyncThunk(
   'drinks/removeFavorite',
   async (id, thunkAPI) => {
     try {
-      const { data } = await instance.delete(`/drinks/favorite/remove/${id}`);
-      return data;
+      await instance.delete(`/drinks/favorite/remove/${id}`);
+      return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
@@ -114,18 +114,58 @@ export const getPopular = createAsyncThunk(
   },
 );
 
+export const getOwnDrinks = createAsyncThunk(
+  'drinks/getOwnDrinks',
+  async ({ page = 1 } = {}, thunkAPI) => {
+    try {
+      const { data } = await instance.get('/drinks/own', { params: { page } });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
+export const removeOwnDrink = createAsyncThunk(
+  'drinks/removeOwnDrink',
+  async (id, thunkAPI) => {
+    try {
+      await instance.delete(`/drinks/own/remove/${id}`);
+      return id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
+export const getFavorites = createAsyncThunk(
+  'drinks/getFavorites',
+  async ({ page = 1 } = {}, thunkAPI) => {
+    try {
+      const { data } = await instance.get('/drinks/favorite', {
+        params: { page },
+      });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
 const drinksSlice = createSlice({
   name: 'drinks',
   initialState: {
     mainPageDrinks: [],
     drinks: [],
+    ownDrinks: [],
+    favoriteDrinks: [],
+    popularDrinks: [],
     totalPages: 0,
     currentPage: 1,
     categories: [],
     ingredients: [],
     currentDrink: null,
     isLoading: false,
-    popularDrinks: [],
     error: null,
   },
   reducers: {},
@@ -176,14 +216,35 @@ const drinksSlice = createSlice({
       .addCase(addFavorite.fulfilled, state => {
         state.isLoading = false;
       })
-      .addCase(removeFavorite.fulfilled, state => {
-        state.isLoading = false;
+      .addCase(removeFavorite.fulfilled, (state, action) => {
+        state.favoriteDrinks = state.favoriteDrinks.filter(
+          drink => drink._id !== action.payload,
+        );
       })
       .addCase(getPopular.fulfilled, (state, action) => {
         state.popularDrinks = action.payload.drinks;
       })
       .addCase(addOwnDrink.fulfilled, state => {
         state.isLoading = false;
+      })
+      .addCase(getOwnDrinks.pending, state => {
+        state.totalPages = 0;
+        state.currentPage = 1;
+      })
+      .addCase(getOwnDrinks.fulfilled, (state, action) => {
+        state.ownDrinks = action.payload.drinks;
+        state.totalPages = action.payload.totalPages;
+        state.currentPage = action.payload.currentPage;
+      })
+      .addCase(removeOwnDrink.fulfilled, (state, action) => {
+        state.ownDrinks = state.ownDrinks.filter(
+          drink => drink._id !== action.payload,
+        );
+      })
+      .addCase(getFavorites.fulfilled, (state, action) => {
+        state.favoriteDrinks = action.payload.drinks;
+        state.totalPages = action.payload.totalPages;
+        state.currentPage = action.payload.currentPage;
       });
   },
 });

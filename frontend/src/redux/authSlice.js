@@ -6,6 +6,7 @@ import {
   refreshUserAPI,
   updateUserAPI,
 } from '../api/auth';
+import { addFavorite, removeFavorite } from './drinksSlice';
 
 export const signup = createAsyncThunk(
   'auth/signup',
@@ -72,7 +73,6 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      // Signup
       .addCase(signup.pending, state => {
         state.isLoading = true;
         state.error = null;
@@ -87,8 +87,6 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-
-      // Login
       .addCase(login.pending, state => {
         state.isLoading = true;
         state.error = null;
@@ -103,15 +101,11 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-
-      // Logout
       .addCase(logout.fulfilled, state => {
         state.user = null;
         state.token = null;
         state.isLoggedIn = false;
       })
-
-      // Refresh
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
@@ -123,9 +117,9 @@ const authSlice = createSlice({
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
         state.isLoggedIn = false;
+        state.token = null;
+        localStorage.removeItem('token');
       })
-
-      // Update user
       .addCase(updateUser.pending, state => {
         state.isLoading = true;
       })
@@ -136,6 +130,23 @@ const authSlice = createSlice({
       .addCase(updateUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      // Оновлюємо favorites в user після додавання
+      .addCase(addFavorite.fulfilled, (state, action) => {
+        if (state.user) {
+          state.user.favorites = [
+            ...(state.user.favorites || []),
+            action.meta.arg,
+          ];
+        }
+      })
+
+      .addCase(removeFavorite.fulfilled, (state, action) => {
+        if (state.user) {
+          state.user.favorites = state.user.favorites.filter(
+            id => id !== action.meta.arg,
+          );
+        }
       });
   },
 });

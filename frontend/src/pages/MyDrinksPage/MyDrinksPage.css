@@ -1,0 +1,25 @@
+.my-drinks-page {
+  padding: 100px 100px 60px;
+}
+
+.my-drinks-title {
+  font-size: 64px;
+  font-weight: 600;
+  color: var(--light-primary);
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 40px;
+  margin-top: 60px;
+}
+
+.my-drinks-loading {
+  text-align: center;
+  color: var(--light-primary);
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  margin-top: 40px;
+}
+
+/* ---- light theme ---- */
+body.light-theme .my-drinks-title {
+  color: #0a0a11;
+}
