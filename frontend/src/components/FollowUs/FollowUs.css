@@ -1,0 +1,45 @@
+.follow-us {
+  margin-bottom: 40px;
+}
+
+.follow-us-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--light-primary);
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 16px;
+}
+
+.follow-us-links {
+  display: flex;
+  gap: 16px;
+}
+
+.follow-us-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid rgba(243, 243, 243, 0.2);
+  transition: border-color 0.2s;
+}
+
+.follow-us-link:hover {
+  border-color: rgba(243, 243, 243, 0.6);
+}
+
+.follow-us-link img {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---- Світла тема ---- */
+body.light-theme .follow-us-title {
+  color: #0a0a11;
+}
+
+body.light-theme .follow-us-link {
+  border-color: rgba(10, 10, 17, 0.2);
+}

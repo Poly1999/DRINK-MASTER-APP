@@ -1,0 +1,28 @@
+.add-drink-page {
+  padding: 100px 100px 60px;
+}
+
+.add-drink-page-title {
+  font-size: 64px;
+  font-weight: 600;
+  color: var(--light-primary);
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 40px;
+  margin-top: 60px;
+}
+
+.add-drink-page-content {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.add-drink-page-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+/* ---- light theme ---- */
+body.light-theme .add-drink-page-title {
+  color: #0a0a11;
+}

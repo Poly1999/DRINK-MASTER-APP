@@ -90,6 +90,30 @@ export const removeFavorite = createAsyncThunk(
   },
 );
 
+export const addOwnDrink = createAsyncThunk(
+  'drinks/addOwnDrink',
+  async (drinkData, thunkAPI) => {
+    try {
+      const { data } = await instance.post('/drinks/own/add', drinkData);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
+export const getPopular = createAsyncThunk(
+  'drinks/getPopular',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await instance.get('/drinks/popular');
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  },
+);
+
 const drinksSlice = createSlice({
   name: 'drinks',
   initialState: {
@@ -101,6 +125,7 @@ const drinksSlice = createSlice({
     ingredients: [],
     currentDrink: null,
     isLoading: false,
+    popularDrinks: [],
     error: null,
   },
   reducers: {},
@@ -152,6 +177,12 @@ const drinksSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(removeFavorite.fulfilled, state => {
+        state.isLoading = false;
+      })
+      .addCase(getPopular.fulfilled, (state, action) => {
+        state.popularDrinks = action.payload.drinks;
+      })
+      .addCase(addOwnDrink.fulfilled, state => {
         state.isLoading = false;
       });
   },
