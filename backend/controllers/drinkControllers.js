@@ -1,15 +1,11 @@
 const Drink = require('../models/Drink');
 
-// check user is over 18
-
 const isAdult = birthday => {
   const today = new Date();
   const birthDate = new Date(birthday);
   const age = today.getFullYear() - birthDate.getFullYear();
-  return age >= 21;
+  return age >= 18;
 };
-
-// main page - coctails by categories
 
 const getMainPage = async (req, res) => {
   try {
@@ -21,8 +17,6 @@ const getMainPage = async (req, res) => {
         '639b6de9ff77d221f190c67e',
         '639b6de9ff77d221f190c5f0',
         '639b6de9ff77d221f190c69c',
-
-        ,
       ],
       Cocktail: [
         '639b6de9ff77d221f190c685',
@@ -69,12 +63,10 @@ const getMainPage = async (req, res) => {
   }
 };
 
-// popular coctails
-
 const getPopular = async (req, res) => {
   try {
     const adult = isAdult(req.user.birthday);
-    const alcoholicFilter = adult ? {} : { alcoholic: ' Non alcoholic' };
+    const alcoholicFilter = adult ? {} : { alcoholic: 'Non alcoholic' };
 
     const drinks = await Drink.find(alcoholicFilter)
       .sort('-favoritesCount')
@@ -85,8 +77,6 @@ const getPopular = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
-// search coctails
 
 const searchDrinks = async (req, res) => {
   try {
@@ -113,8 +103,6 @@ const searchDrinks = async (req, res) => {
   }
 };
 
-// find one drink by id
-
 const getDrinkById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -130,17 +118,16 @@ const getDrinkById = async (req, res) => {
   }
 };
 
-// add own coctail
-
+// ← виправлено req.use на req.user
 const getOwnDrink = async (req, res) => {
   try {
-    const adult = isAdult(req.use.birthday);
+    const adult = isAdult(req.user.birthday);
     const { alcoholic } = req.body;
 
     if (!adult && alcoholic !== 'Non alcoholic') {
       return res
         .status(403)
-        .json({ message: 'You must be 21+ to add alcoholic drinks' });
+        .json({ message: 'You must be 18+ to add alcoholic drinks' });
     }
 
     const drink = await Drink.create({
@@ -153,8 +140,6 @@ const getOwnDrink = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
-// remove own coctail
 
 const removeOwnDrink = async (req, res) => {
   try {
@@ -174,11 +159,9 @@ const removeOwnDrink = async (req, res) => {
   }
 };
 
-// get own coctails
-
 const getOwnDrinks = async (req, res) => {
   try {
-    const { page = 1, limit = 9 } = req.body;
+    const { page = 1, limit = 9 } = req.query;
     const skip = (page - 1) * limit;
 
     const total = await Drink.countDocuments({ owner: req.user._id });
@@ -192,11 +175,10 @@ const getOwnDrinks = async (req, res) => {
       currentPage: Number(page),
     });
   } catch (error) {
-    res.status(500).json({ messgae: error.message });
+    console.error('Error:', error.message);
+    res.status(500).json({ message: error.message });
   }
 };
-
-// add to favorite
 
 const addFavorite = async (req, res) => {
   try {
@@ -216,12 +198,10 @@ const addFavorite = async (req, res) => {
   }
 };
 
-// delete from favorite
-
 const removeFavorite = async (req, res) => {
   try {
     const { id } = req.params;
-    await req.user.updateOne({ $puu: { favorites: id } });
+    await req.user.updateOne({ $pull: { favorites: id } });
     await Drink.findByIdAndUpdate(id, { $inc: { favoritesCount: -1 } });
 
     res.status(200).json({ message: 'Drink removed from favorites' });
@@ -230,11 +210,9 @@ const removeFavorite = async (req, res) => {
   }
 };
 
-// get favorite coctails
-
 const getFavorites = async (req, res) => {
   try {
-    const { pahe = 1, limit = 9 } = req.body;
+    const { page = 1, limit = 9 } = req.query;
     const skip = (page - 1) * limit;
 
     const user = req.user;

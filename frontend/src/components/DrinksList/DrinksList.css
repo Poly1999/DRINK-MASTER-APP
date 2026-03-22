@@ -1,0 +1,19 @@
+.drinks-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  list-style: none;
+}
+
+.drinks-list-empty {
+  text-align: center;
+  color: rgba(243, 243, 243, 0.6);
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  margin-top: 40px;
+}
+
+/* ---- light theme ---- */
+body.light-theme .drinks-list-empty {
+  color: rgba(10, 10, 17, 0.6);
+}
