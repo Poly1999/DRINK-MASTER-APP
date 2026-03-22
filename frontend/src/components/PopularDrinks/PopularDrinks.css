@@ -1,0 +1,70 @@
+.popular-drinks {
+  margin-top: 40px;
+}
+
+.popular-drinks-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--light-primary);
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 24px;
+}
+
+.popular-drinks-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.popular-drink-link {
+  display: flex;
+  gap: 16px;
+  text-decoration: none;
+  align-items: flex-start;
+}
+
+.popular-drink-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.popular-drink-info {
+  flex: 1;
+}
+
+.popular-drink-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--light-primary);
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 4px;
+}
+
+.popular-drink-description {
+  font-size: 12px;
+  color: rgba(243, 243, 243, 0.5);
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---- light theme ---- */
+body.light-theme .popular-drinks-title {
+  color: #0a0a11;
+}
+
+body.light-theme .popular-drink-name {
+  color: #0a0a11;
+}
+
+body.light-theme .popular-drink-description {
+  color: rgba(10, 10, 17, 0.5);
+}
