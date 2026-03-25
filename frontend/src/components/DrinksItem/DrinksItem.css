@@ -120,3 +120,7 @@ body.light-theme .drinks-item-btn:hover {
 body.light-theme .drinks-item-delete {
   border-color: rgba(10, 10, 17, 0.2);
 }
+
+body.light-theme .drinks-item-delete img {
+  filter: invert(1);
+}

@@ -393,6 +393,18 @@ body.light-theme .add-drink-measure-input {
   border-color: rgba(10, 10, 17, 0.2);
 }
 
+body.light-theme .add-drink-remove-btn {
+  color: #0a0a11;
+}
+
+body.light-theme .add-drink-remove-btn:hover {
+  color: rgba(10, 10, 17, 0.2);
+}
+
+body.light-theme .add-drink-measure-input::placeholder {
+  color: #0a0a11;
+}
+
 body.light-theme .add-drink-textarea {
   color: #0a0a11;
   border-color: rgba(10, 10, 17, 0.2);

@@ -35,11 +35,15 @@
   height: 18px;
 }
 
-/* ---- Світла тема ---- */
+/* ---- light theme ---- */
 body.light-theme .follow-us-title {
   color: #0a0a11;
 }
 
 body.light-theme .follow-us-link {
   border-color: rgba(10, 10, 17, 0.2);
+}
+
+body.light-theme .follow-us-link img {
+  filter: invert(1);
 }
