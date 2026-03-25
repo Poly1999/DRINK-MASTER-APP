@@ -8,6 +8,7 @@ import Paginator from '../../components/Paginator/Paginator';
 import './FavoritesPage.css';
 import ellipseBefore from '../../assets/elipse-hero-before.png';
 import ellipseAfterBlue from '../../assets/ellipse-hero-after-blue.png';
+import cocktailHero from '../../assets/cocktail-hero.png';
 
 const FavoritesPage = () => {
   const dispatch = useDispatch();
@@ -43,9 +44,20 @@ const FavoritesPage = () => {
       />
       <h1 className='favorites-title'>Favorites</h1>
 
-      {isLoading && <p className='favorites-loading'>Loading...</p>}
+      {!isLoading && favoriteDrinks.length === 0 && (
+        <div className='favorites-empty'>
+          <img
+            src={cocktailHero}
+            alt='no favorites'
+            className='favorites-empty-img'
+          />
+          <p className='favorites-empty-text'>
+            You haven't added any favorite cocktails yet
+          </p>
+        </div>
+      )}
 
-      {!isLoading && (
+      {!isLoading && favoriteDrinks.length > 0 && (
         <DrinksList drinks={favoriteDrinks} onDelete={handleDelete} />
       )}
 

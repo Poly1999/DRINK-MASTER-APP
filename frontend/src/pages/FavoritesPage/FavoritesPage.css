@@ -19,12 +19,30 @@
   margin-top: 60px;
 }
 
-.favorites-loading {
-  text-align: center;
-  color: var(--light-primary);
+.favorites-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  gap: 24px;
+}
+
+.favorites-empty-img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+.favorites-empty-text {
+  color: rgba(243, 243, 243, 0.6);
   font-family: 'Manrope', sans-serif;
   font-size: 16px;
-  margin-top: 40px;
+  text-align: center;
+}
+
+body.light-theme .favorites-empty-text {
+  color: rgba(10, 10, 17, 0.6);
 }
 
 .ellipse-after-blue {

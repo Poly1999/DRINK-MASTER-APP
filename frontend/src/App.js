@@ -14,6 +14,7 @@ import CocktailPage from './pages/CocktailPage/CocktailPage';
 import AddDrinkPage from './pages/AddDrinkPage/AddDrinkPage';
 import MyDrinksPage from './pages/MyDrinksPage/MyDrinksPage';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
           element={<PublicRoute component={SignupPage} />}
         />
         <Route path='/login' element={<PublicRoute component={LoginPage} />} />
+        <Route path='*' element={<NotFoundPage />} />
 
         {/* PRIVATE ROUTES  */}
         <Route path='/' element={<PrivateRoute component={SharedLayout} />}>
