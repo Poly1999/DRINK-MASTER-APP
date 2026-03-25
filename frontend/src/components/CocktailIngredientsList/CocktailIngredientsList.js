@@ -20,8 +20,13 @@ const CocktailIngredientsList = ({ ingredients }) => {
                 }}
               />
             </div>
-            <p className='cocktail-ingredient-name'>{ingredient.title}</p>
-            <p className='cocktail-ingredient-measure'>{ingredient.measure}</p>
+
+            <div className='cocktail-ingredient-info'>
+              <p className='cocktail-ingredient-name'>{ingredient.title}</p>
+              <p className='cocktail-ingredient-measure'>
+                {ingredient.measure}
+              </p>
+            </div>
           </li>
         ))}
       </ul>

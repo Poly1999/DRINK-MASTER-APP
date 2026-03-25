@@ -7,14 +7,17 @@ const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const filterRoutes = require('./routes/filterRoutes');
 const drinkRoutes = require('./routes/drinkRoutes');
+const path = require('path');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// routes
+// Статичні файли (для картинок)
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/filters', filterRoutes);

@@ -4,13 +4,13 @@
 
 .add-drink-form-top {
   display: flex;
-  gap: 24px;
-  margin-bottom: 40px;
+  gap: 40px;
+  margin-bottom: 80px;
 }
 
 .add-drink-photo {
-  width: 300px;
-  height: 268px;
+  width: 400px;
+  height: 400px;
   flex-shrink: 0;
   border-radius: 8px;
   background-color: var(--dark-blue);
@@ -52,7 +52,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 40px;
 }
 
 .add-drink-input {
@@ -136,7 +136,7 @@
 
 .add-drink-radio-row {
   display: flex;
-  gap: 24px;
+  gap: 14px;
   align-items: center;
 }
 
@@ -145,20 +145,52 @@
   align-items: center;
   gap: 8px;
   color: var(--light-primary);
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 100%;
   font-family: 'Manrope', sans-serif;
   cursor: pointer;
 }
 
+.add-drink-radio input[type='radio'] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(243, 243, 243, 0.5);
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+.add-drink-radio input[type='radio']:checked {
+  border-color: var(--light-primary);
+}
+
+.add-drink-radio input[type='radio']:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--light-primary);
+}
+
 .add-drink-ingredients {
-  margin-bottom: 40px;
+  margin-bottom: 80px;
+  max-width: 500px;
 }
 
 .add-drink-ingredients-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
 }
 
 .add-drink-ingredients-title {
@@ -254,7 +286,8 @@
 }
 
 .add-drink-recipe {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  max-width: 480px;
 }
 
 .add-drink-recipe-title {
@@ -326,6 +359,18 @@ body.light-theme .add-drink-select-btn {
 
 body.light-theme .add-drink-radio {
   color: #0a0a11;
+}
+
+body.light-theme .add-drink-radio input[type='radio'] {
+  border-color: rgba(10, 10, 17, 0.5);
+}
+
+body.light-theme .add-drink-radio input[type='radio']:checked {
+  border-color: #0a0a11;
+}
+
+body.light-theme .add-drink-radio input[type='radio']:checked::after {
+  background-color: #0a0a11;
 }
 
 body.light-theme .add-drink-ingredients-title,

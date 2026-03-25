@@ -2,6 +2,14 @@
   padding: 100px 100px 60px;
 }
 
+.ellipse-hero-before {
+  position: absolute;
+  left: -50px;
+  top: -250px;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .my-drinks-title {
   font-size: 64px;
   font-weight: 600;
@@ -17,6 +25,15 @@
   font-family: 'Manrope', sans-serif;
   font-size: 16px;
   margin-top: 40px;
+}
+
+.ellipse-after-blue {
+  position: absolute;
+  right: 0;
+  top: 200px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
 /* ---- light theme ---- */

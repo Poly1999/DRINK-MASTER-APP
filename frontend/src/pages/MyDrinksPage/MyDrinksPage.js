@@ -6,6 +6,8 @@ import { getOwnDrinks, removeOwnDrink } from '../../redux/drinksSlice';
 import DrinksList from '../../components/DrinksList/DrinksList';
 import Paginator from '../../components/Paginator/Paginator';
 import './MyDrinksPage.css';
+import ellipseBefore from '../../assets/elipse-hero-before.png';
+import ellipseAfterBlue from '../../assets/ellipse-hero-after-blue.png';
 
 const MyDrinksPage = () => {
   const dispatch = useDispatch();
@@ -34,6 +36,11 @@ const MyDrinksPage = () => {
 
   return (
     <div className='my-drinks-page'>
+      <img
+        src={ellipseBefore}
+        alt='ellipse-hero-before'
+        className='ellipse-hero-before'
+      />
       <h1 className='my-drinks-title'>My drinks</h1>
 
       {isLoading && <p className='my-drinks-loading'>Loading...</p>}
@@ -44,6 +51,12 @@ const MyDrinksPage = () => {
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
+      />
+
+      <img
+        src={ellipseAfterBlue}
+        alt='ellipse-after-blue'
+        className='ellipse-after-blue'
       />
     </div>
   );

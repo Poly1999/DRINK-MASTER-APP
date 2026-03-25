@@ -7,6 +7,8 @@ const isAdult = birthday => {
   return age >= 18;
 };
 
+const cloudinary = require('../helpers/cloudinary');
+
 const getMainPage = async (req, res) => {
   try {
     const adult = isAdult(req.user.birthday);
@@ -118,7 +120,6 @@ const getDrinkById = async (req, res) => {
   }
 };
 
-// ← виправлено req.use на req.user
 const getOwnDrink = async (req, res) => {
   try {
     const adult = isAdult(req.user.birthday);
@@ -130,13 +131,32 @@ const getOwnDrink = async (req, res) => {
         .json({ message: 'You must be 18+ to add alcoholic drinks' });
     }
 
+    let drinkThumb = '';
+    if (req.file) {
+      const result = await cloudinary.v2.uploader.upload(req.file.path, {
+        folder: 'drink-master/drinks',
+      });
+      drinkThumb = result.secure_url;
+    }
+
+    let parsedIngredients = [];
+    if (req.body.ingredients) {
+      parsedIngredients =
+        typeof req.body.ingredients === 'string'
+          ? JSON.parse(req.body.ingredients)
+          : req.body.ingredients;
+    }
+
     const drink = await Drink.create({
       ...req.body,
+      drinkThumb,
+      ingredients: parsedIngredients,
       owner: req.user._id,
     });
 
     res.status(201).json({ drink });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: error.message });
   }
 };

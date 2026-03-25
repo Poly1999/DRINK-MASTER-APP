@@ -90,14 +90,30 @@ export const removeFavorite = createAsyncThunk(
   },
 );
 
+// export const addOwnDrink = createAsyncThunk(
+//   'drinks/addOwnDrink',
+//   async (drinkData, thunkAPI) => {
+//     try {
+//       const { data } = await instance.post('/drinks/own/add', drinkData);
+//       return data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.response.data.message);
+//     }
+//   },
+// );
+
 export const addOwnDrink = createAsyncThunk(
   'drinks/addOwnDrink',
   async (drinkData, thunkAPI) => {
     try {
-      const { data } = await instance.post('/drinks/own/add', drinkData);
+      const { data } = await instance.post('/drinks/own/add', drinkData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message,
+      );
     }
   },
 );

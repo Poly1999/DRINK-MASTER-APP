@@ -1,21 +1,28 @@
 .cocktail-ingredients {
-  padding: 60px 100px;
-  border-top: 1px solid rgba(243, 243, 243, 0.1);
+  padding-top: 100px;
 }
 
 .cocktail-ingredients-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
+  line-height: 20px;
   color: rgba(243, 243, 243, 0.5);
   font-family: 'Manrope', sans-serif;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .cocktail-ingredients-list {
   display: flex;
-  gap: 20px;
+  gap: 35px;
   list-style: none;
   flex-wrap: wrap;
+}
+
+.cocktail-ingredient-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .cocktail-ingredient-item {

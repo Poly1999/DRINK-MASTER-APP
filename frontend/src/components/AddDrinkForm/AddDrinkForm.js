@@ -6,6 +6,7 @@ import {
   addOwnDrink,
   getCategories,
   getIngredients,
+  getOwnDrinks,
 } from '../../redux/drinksSlice';
 import './AddDrinkForm.css';
 
@@ -45,7 +46,6 @@ const AddDrinkForm = () => {
     dispatch(getIngredients());
   }, [dispatch]);
 
-  // Вибір фото
   const handlePhotoChange = e => {
     const file = e.target.files[0];
     if (file) {
@@ -54,17 +54,14 @@ const AddDrinkForm = () => {
     }
   };
 
-  // Додати інгредієнт
   const addIngredient = () => {
     setRecipeIngredients([...recipeIngredients, { title: '', measure: '' }]);
   };
 
-  // Видалити інгредієнт
   const removeIngredient = index => {
     setRecipeIngredients(recipeIngredients.filter((_, i) => i !== index));
   };
 
-  // Оновити інгредієнт
   const updateIngredient = (index, field, value) => {
     const updated = recipeIngredients.map((ing, i) =>
       i === index ? { ...ing, [field]: value } : ing,
@@ -72,7 +69,37 @@ const AddDrinkForm = () => {
     setRecipeIngredients(updated);
   };
 
-  // Відправити форму
+  // const handleSubmit = async e => {
+  //   e.preventDefault();
+
+  //   if (!title || !description || !category || !glass || !instructions) {
+  //     toast.error('Please fill all fields');
+  //     return;
+  //   }
+
+  //   const formData = new FormData();
+  //   formData.append('drink', title);
+  //   formData.append('description', description);
+  //   formData.append('category', category);
+  //   formData.append('glass', glass);
+  //   formData.append('alcoholic', alcoholic);
+  //   formData.append('instructions', instructions);
+  //   // formData.append('ingredients', JSON.stringify(recipeIngredients));
+  //   recipeIngredients.forEach((ing, index) => {
+  //     formData.append(`ingredients[${index}][title]`, ing.title);
+  //     formData.append(`ingredients[${index}][measure]`, ing.measure);
+  //   });
+  //   if (photo) formData.append('drinkThumb', photo);
+
+  //   const result = dispatch(addOwnDrink(formData));
+  //   if (addOwnDrink.fulfilled.match(result)) {
+  //     toast.success('Drink added!');
+  //     navigate('/my');
+  //   } else {
+  //     toast.error(result.payload || 'Something went wrong');
+  //   }
+  // };
+
   const handleSubmit = async e => {
     e.preventDefault();
 
@@ -88,10 +115,22 @@ const AddDrinkForm = () => {
     formData.append('glass', glass);
     formData.append('alcoholic', alcoholic);
     formData.append('instructions', instructions);
+
+    // Відправляємо інгредієнти як JSON
     formData.append('ingredients', JSON.stringify(recipeIngredients));
+
     if (photo) formData.append('drinkThumb', photo);
 
+    // Лог для перевірки
+    console.log('FormData entries:');
+    for (let pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
+
     const result = await dispatch(addOwnDrink(formData));
+
+    console.log('addOwnDrink result:', result);
+
     if (addOwnDrink.fulfilled.match(result)) {
       toast.success('Drink added!');
       navigate('/my');
@@ -121,7 +160,6 @@ const AddDrinkForm = () => {
           />
         </label>
 
-        {/* Поля форми */}
         <div className='add-drink-fields'>
           <input
             className='add-drink-input'
@@ -137,7 +175,6 @@ const AddDrinkForm = () => {
             onChange={e => setDescription(e.target.value)}
           />
 
-          {/* Категорія */}
           <div className='add-drink-select-row'>
             <span className='add-drink-label'>Category</span>
             <div className='add-drink-select-wrapper'>
@@ -170,7 +207,6 @@ const AddDrinkForm = () => {
             </div>
           </div>
 
-          {/* Тара */}
           <div className='add-drink-select-row'>
             <span className='add-drink-label'>Glass</span>
             <div className='add-drink-select-wrapper'>
@@ -203,7 +239,6 @@ const AddDrinkForm = () => {
             </div>
           </div>
 
-          {/* Алкогольний */}
           <div className='add-drink-radio-row'>
             <label className='add-drink-radio'>
               <input
@@ -229,7 +264,6 @@ const AddDrinkForm = () => {
         </div>
       </div>
 
-      {/* Інгредієнти */}
       <div className='add-drink-ingredients'>
         <div className='add-drink-ingredients-header'>
           <h3 className='add-drink-ingredients-title'>Ingredients</h3>
@@ -280,7 +314,6 @@ const AddDrinkForm = () => {
         ))}
       </div>
 
-      {/* Recipe Preparation */}
       <div className='add-drink-recipe'>
         <h3 className='add-drink-recipe-title'>Recipe Preparation</h3>
         <textarea

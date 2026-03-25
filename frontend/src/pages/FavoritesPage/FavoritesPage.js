@@ -6,6 +6,8 @@ import { getFavorites, removeFavorite } from '../../redux/drinksSlice';
 import DrinksList from '../../components/DrinksList/DrinksList';
 import Paginator from '../../components/Paginator/Paginator';
 import './FavoritesPage.css';
+import ellipseBefore from '../../assets/elipse-hero-before.png';
+import ellipseAfterBlue from '../../assets/ellipse-hero-after-blue.png';
 
 const FavoritesPage = () => {
   const dispatch = useDispatch();
@@ -34,6 +36,11 @@ const FavoritesPage = () => {
 
   return (
     <div className='favorites-page'>
+      <img
+        src={ellipseBefore}
+        alt='ellipse-hero-before'
+        className='ellipse-hero-before'
+      />
       <h1 className='favorites-title'>Favorites</h1>
 
       {isLoading && <p className='favorites-loading'>Loading...</p>}
@@ -46,6 +53,11 @@ const FavoritesPage = () => {
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
+      />
+      <img
+        src={ellipseAfterBlue}
+        alt='ellipse-after-blue'
+        className='ellipse-after-blue'
       />
     </div>
   );
