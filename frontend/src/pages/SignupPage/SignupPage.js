@@ -49,8 +49,6 @@ const SignupPage = () => {
     }
   };
 
-  const isMobile = window.innerWidth <= 759;
-
   return (
     <div className='auth-page'>
       <Toaster />
