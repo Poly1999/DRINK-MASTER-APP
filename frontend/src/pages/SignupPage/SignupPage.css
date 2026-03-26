@@ -2,9 +2,9 @@
   display: flex;
   z-index: 2;
   flex-direction: column;
-  padding-left: 100px;
+  padding: 200px 100px;
   width: 100%;
-  max-width: 465px;
+  max-width: 550px;
 }
 
 .signup-title {
@@ -12,12 +12,14 @@
   font-weight: 600;
   color: var(--light-primary);
   margin-bottom: 28px;
+  z-index: 2;
 }
 
 .signup-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 2;
 }
 
 .signup-form-container {
@@ -186,4 +188,37 @@
 
 .react-datepicker__view-calendar-icon input {
   padding: 14px 18px !important;
+}
+
+@media (max-width: 1199px) {
+  .signup-content {
+    padding: 500px 50px;
+    max-width: 465px;
+  }
+}
+
+@media (max-width: 759px) {
+  .signup-content {
+    padding: 200px 30px;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .signup-form,
+  .signup-form-container {
+    width: 100%;
+  }
+
+  .signup-page-button {
+    width: 100%;
+  }
+
+  .signin-page-button {
+    z-index: 1;
+  }
+
+  .react-datepicker {
+    display: none;
+  }
 }

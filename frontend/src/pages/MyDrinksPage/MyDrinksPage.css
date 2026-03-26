@@ -40,3 +40,56 @@
 body.light-theme .my-drinks-title {
   color: #0a0a11;
 }
+
+/* ---- TABLET (760px – 1199px) ---- */
+@media (max-width: 1199px) {
+  .my-drinks-page {
+    padding: 80px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .my-drinks-title {
+    font-size: 48px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .my-drinks-page > * {
+    width: 100%;
+    max-width: 800px;
+  }
+}
+
+/* ---- MOBILE (до 759px) ---- */
+@media (max-width: 759px) {
+  .my-drinks-page {
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .my-drinks-title {
+    font-size: 32px;
+    padding-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .my-drinks-loading {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .my-drinks-page > * {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .ellipse-hero-before {
+    display: none;
+  }
+}

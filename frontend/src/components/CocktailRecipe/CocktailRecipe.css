@@ -62,3 +62,29 @@ body.light-theme .cocktail-recipe-description,
 body.light-theme .cocktail-recipe-instructions {
   color: rgba(10, 10, 17, 0.7);
 }
+
+/* ---- TABLET (760px – 1199px) ---- */
+@media (max-width: 1199px) and (min-width: 760px) {
+  .cocktail-recipe-content {
+    flex-direction: column;
+  }
+}
+
+/* ---- MOBILE (до 759px) ---- */
+@media (max-width: 759px) {
+  .cocktail-recipe-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cocktail-recipe-text {
+    order: 0;
+  }
+
+  .cocktail-recipe-image {
+    order: 1;
+    width: 100%;
+    height: 450px;
+  }
+}

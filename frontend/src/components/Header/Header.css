@@ -49,3 +49,37 @@ body.light-theme .header {
 body.light-theme .user-name {
   color: var(--dark-primary);
 }
+
+/* ---- TABLET (760px – 1199px) ---- */
+@media (max-width: 1199px) {
+  .header-container {
+    padding: 16px 40px;
+  }
+
+  .header-right {
+    gap: 20px;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .header-theme {
+    display: none;
+  }
+}
+
+/* ---- MOBILE (до 760px) ---- */
+@media (max-width: 759px) {
+  .header-container {
+    padding: 16px 20px;
+  }
+
+  .header-right {
+    gap: 14px;
+  }
+
+  .user-name {
+    display: none;
+  }
+}

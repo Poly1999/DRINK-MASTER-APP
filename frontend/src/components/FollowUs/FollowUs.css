@@ -47,3 +47,10 @@ body.light-theme .follow-us-link {
 body.light-theme .follow-us-link img {
   filter: invert(1);
 }
+
+/* ---- MOBILE (до 759px) ---- */
+@media (max-width: 759px) {
+  .follow-us-title {
+    text-align: center;
+  }
+}

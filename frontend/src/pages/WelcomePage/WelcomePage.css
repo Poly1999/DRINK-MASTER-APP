@@ -1,4 +1,14 @@
 /* ---- Content left ---- */
+
+.welcome-container {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .welcome-content {
   position: relative;
   z-index: 2;
@@ -22,6 +32,7 @@
 }
 
 /* ---- Buttons ---- */
+
 .welcome-buttons {
   display: flex;
   padding-left: 100px;
@@ -63,4 +74,62 @@
 
 .signin-button:hover {
   opacity: 0.75;
+}
+
+@media (max-width: 1199px) {
+  .welcome-content {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .welcome-buttons {
+    padding-left: 40px;
+  }
+
+  .welcome-title {
+    font-size: 32px;
+  }
+
+  .welcome-text {
+    font-size: 16px;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 759px) {
+  .welcome-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
+
+  .welcome-buttons {
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .signin-button {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .signup-button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .welcome-title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .welcome-text {
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 100%;
+  }
 }

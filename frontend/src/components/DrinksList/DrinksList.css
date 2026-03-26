@@ -13,7 +13,23 @@
   margin-top: 40px;
 }
 
-/* ---- light theme ---- */
+/* ---- Light theme ---- */
 body.light-theme .drinks-list-empty {
   color: rgba(10, 10, 17, 0.6);
+}
+
+/* ---- TABLET (760px – 1199px) ---- */
+@media (max-width: 1199px) {
+  .drinks-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+/* ---- MOBILE (до 760px) ---- */
+@media (max-width: 759px) {
+  .drinks-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }

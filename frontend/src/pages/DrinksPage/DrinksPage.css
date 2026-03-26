@@ -1,5 +1,7 @@
 .drinks-page {
   padding: 80px 100px;
+  position: relative;
+  overflow: hidden;
 }
 
 .ellipse-hero-before {
@@ -8,6 +10,15 @@
   top: -250px;
   z-index: 0;
   pointer-events: none;
+}
+
+.ellipse-after-blue {
+  position: absolute;
+  right: 0;
+  top: 200px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
 .drinks-page-title {
@@ -41,16 +52,43 @@
   margin-top: 40px;
 }
 
-.ellipse-after-blue {
-  position: absolute;
-  right: 0;
-  top: 200px;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
 /* ---- Light theme ---- */
 body.light-theme .drinks-page-title {
   color: #0a0a11;
+}
+
+/* ---- TABLET (760px – 1199px) ---- */
+@media (max-width: 1199px) {
+  .drinks-page {
+    padding: 60px 40px;
+  }
+
+  .drinks-page-title {
+    font-size: 48px;
+    margin-bottom: 60px;
+    margin-top: 120px;
+  }
+
+  .drinks-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* ---- MOBILE (до 760px) ---- */
+@media (max-width: 759px) {
+  .drinks-page {
+    padding: 40px 20px;
+  }
+
+  .drinks-page-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+    margin-top: 80px;
+  }
+
+  .drinks-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 }

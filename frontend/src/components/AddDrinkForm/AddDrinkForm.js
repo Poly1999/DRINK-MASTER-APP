@@ -6,7 +6,6 @@ import {
   addOwnDrink,
   getCategories,
   getIngredients,
-  getOwnDrinks,
 } from '../../redux/drinksSlice';
 import './AddDrinkForm.css';
 
@@ -69,37 +68,6 @@ const AddDrinkForm = () => {
     setRecipeIngredients(updated);
   };
 
-  // const handleSubmit = async e => {
-  //   e.preventDefault();
-
-  //   if (!title || !description || !category || !glass || !instructions) {
-  //     toast.error('Please fill all fields');
-  //     return;
-  //   }
-
-  //   const formData = new FormData();
-  //   formData.append('drink', title);
-  //   formData.append('description', description);
-  //   formData.append('category', category);
-  //   formData.append('glass', glass);
-  //   formData.append('alcoholic', alcoholic);
-  //   formData.append('instructions', instructions);
-  //   // formData.append('ingredients', JSON.stringify(recipeIngredients));
-  //   recipeIngredients.forEach((ing, index) => {
-  //     formData.append(`ingredients[${index}][title]`, ing.title);
-  //     formData.append(`ingredients[${index}][measure]`, ing.measure);
-  //   });
-  //   if (photo) formData.append('drinkThumb', photo);
-
-  //   const result = dispatch(addOwnDrink(formData));
-  //   if (addOwnDrink.fulfilled.match(result)) {
-  //     toast.success('Drink added!');
-  //     navigate('/my');
-  //   } else {
-  //     toast.error(result.payload || 'Something went wrong');
-  //   }
-  // };
-
   const handleSubmit = async e => {
     e.preventDefault();
 
@@ -116,12 +84,10 @@ const AddDrinkForm = () => {
     formData.append('alcoholic', alcoholic);
     formData.append('instructions', instructions);
 
-    // Відправляємо інгредієнти як JSON
     formData.append('ingredients', JSON.stringify(recipeIngredients));
 
     if (photo) formData.append('drinkThumb', photo);
 
-    // Лог для перевірки
     console.log('FormData entries:');
     for (let pair of formData.entries()) {
       console.log(pair[0], pair[1]);
@@ -142,7 +108,6 @@ const AddDrinkForm = () => {
   return (
     <form className='add-drink-form' onSubmit={handleSubmit}>
       <div className='add-drink-form-top'>
-        {/* Фото */}
         <label className='add-drink-photo'>
           {preview ? (
             <img src={preview} alt='preview' className='add-drink-preview' />
