@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 5px 190px 5px 225px;
 }
 
 .nav-link {
@@ -26,6 +25,8 @@
   border-color: var(--dark-blue);
   color: var(--light-primary);
 }
+
+/* ---- Light theme ---- */
 body.light-theme .nav-link {
   color: #0a0a11;
   border-color: rgba(10, 10, 17, 0.2);

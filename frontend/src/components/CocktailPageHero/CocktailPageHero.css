@@ -90,3 +90,27 @@ body.light-theme .cocktail-hero-btn:hover {
   background-color: #0a0a11;
   color: #f3f3f3;
 }
+
+/* ---- TABLET (760px – 1199px) ---- */
+@media (max-width: 1199px) {
+}
+
+/* ---- MOBILE (до 760px) ---- */
+@media (max-width: 759px) {
+  .cocktail-hero {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cocktail-hero-content {
+    padding-top: 60px;
+  }
+
+  .cocktail-hero-description {
+    margin-bottom: 20px;
+  }
+
+  .cocktail-hero-image {
+    padding-top: 30px;
+  }
+}

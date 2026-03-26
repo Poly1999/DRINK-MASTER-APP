@@ -13,9 +13,9 @@
 
 .cocktail-ingredients-list {
   display: flex;
-  gap: 35px;
-  list-style: none;
+  gap: 16px;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .cocktail-ingredient-info {
@@ -81,4 +81,46 @@ body.light-theme .cocktail-ingredient-name {
 
 body.light-theme .cocktail-ingredient-measure {
   color: rgba(10, 10, 17, 0.5);
+}
+
+/* ---- TABLET (760px – 1199px) ---- */
+@media (max-width: 1199px) and (min-width: 760px) {
+  .cocktail-ingredients-list {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+  }
+
+  .cocktail-ingredient-item {
+    flex: 0 0 calc(25% - 12px);
+    scroll-snap-align: start;
+  }
+
+  .cocktail-ingredient-img-wrapper {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ---- MOBILE (до 759px) ---- */
+@media (max-width: 759px) {
+  .cocktail-ingredients-list {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+  }
+
+  .cocktail-ingredient-item {
+    flex: 0 0 calc(50% - 8px);
+    scroll-snap-align: start;
+  }
+
+  .cocktail-ingredient-img-wrapper {
+    width: 100%;
+    height: auto;
+  }
 }

@@ -6,6 +6,7 @@ import Navigation from '../Navigation/Navigation';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
 import UserLogoPopup from '../UserLogoPopup/UserLogoPopup';
 import UserInfoModal from '../UserInfoModal/UserInfoModal';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { logout } from '../../redux/authSlice';
 import avatar from '../../assets/avatar.png';
 import './Header.css';
@@ -28,9 +29,16 @@ const Header = () => {
     <header className='header'>
       <div className='header-container'>
         <Logo />
-        <Navigation />
+
+        <div className='header-nav'>
+          <Navigation />
+        </div>
+
         <div className='header-right'>
-          <ThemeToggler />
+          <div className='header-theme'>
+            <ThemeToggler />
+          </div>
+
           <div className='user-logo' onClick={() => setIsPopupOpen(true)}>
             <img
               src={user?.avatar || avatar}
@@ -39,6 +47,8 @@ const Header = () => {
             />
             <span className='user-name'>{user?.name}</span>
           </div>
+
+          <BurgerMenu />
         </div>
       </div>
 

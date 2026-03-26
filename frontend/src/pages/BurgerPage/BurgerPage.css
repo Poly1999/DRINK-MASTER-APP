@@ -1,0 +1,117 @@
+.burger-page {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(63, 94, 251, 0.2),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(0, 195, 255, 0.2),
+      transparent 40%
+    ),
+    #0a0e1a;
+
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+
+/* Header */
+
+.burger-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.burger-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 18px;
+}
+
+.burger-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.burger-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Nav */
+
+.burger-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Buttons */
+
+.burger-btn-link {
+  padding: 14px 40px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.burger-btn-link:hover,
+.burger-btn-link.active {
+  background: #161f37;
+  border: none;
+}
+
+/* ---- LIGHT THEME ---- */
+body.light-theme .burger-page {
+  background:
+    radial-gradient(circle at top left, rgba(0, 0, 0, 0.05), transparent 40%),
+    radial-gradient(
+      circle at bottom right,
+      rgba(0, 0, 0, 0.05),
+      transparent 40%
+    ),
+    #f3f3f3;
+}
+
+body.light-theme .burger-header {
+  border-bottom: 1px solid rgba(10, 10, 17, 0.1);
+}
+
+body.light-theme .burger-logo {
+  color: #0a0a11;
+}
+
+body.light-theme .burger-close {
+  color: #0a0a11;
+}
+
+body.light-theme .burger-btn-link {
+  color: #0a0a11;
+  border: 1px solid rgba(10, 10, 17, 0.2);
+}
+
+body.light-theme .burger-btn-link:hover,
+body.light-theme .burger-btn-link.active {
+  background: #161f37;
+  color: #f3f3f3;
+  border: 1px solid transparent;
+}

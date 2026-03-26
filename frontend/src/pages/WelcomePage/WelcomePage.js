@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../AuthPages.css';
-import '../WelcomePage/WelcomePage.css';
+import './WelcomePage.css';
 import startPageImg from '../../assets/startPageImg.png';
 import ellipse from '../../assets/ellipse.png';
 

@@ -11,3 +11,17 @@
   font-family: 'Manrope', sans-serif;
   font-size: 18px;
 }
+
+/* ---- TABLET (760px – 1199px) ---- */
+@media (max-width: 1199px) {
+  .cocktail-page {
+    padding: 60px 40px;
+  }
+}
+
+/* ---- MOBILE (до 760px) ---- */
+@media (max-width: 759px) {
+  .cocktail-page {
+    padding: 40px 20px;
+  }
+}

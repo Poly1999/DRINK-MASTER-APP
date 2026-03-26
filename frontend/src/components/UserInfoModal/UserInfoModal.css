@@ -124,3 +124,17 @@
 .modal-submit:hover {
   opacity: 0.85;
 }
+
+@media (max-width: 1199px) {
+  .modal {
+    margin-top: 450px;
+    margin-left: 500px;
+  }
+}
+
+@media (max-width: 759px) {
+  .modal {
+    margin-top: 400px;
+    margin-left: 100px;
+  }
+}

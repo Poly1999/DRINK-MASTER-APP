@@ -15,6 +15,7 @@ import AddDrinkPage from './pages/AddDrinkPage/AddDrinkPage';
 import MyDrinksPage from './pages/MyDrinksPage/MyDrinksPage';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import BurgerPage from './pages/BurgerPage/BurgerPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
         <Route path='/' element={<PrivateRoute component={SharedLayout} />}>
           <Route path='home' element={<HomePage />} />
           <Route path='drinks' element={<DrinksPage />} />
+          <Route path='/menu' element={<BurgerPage />} />
           <Route path='add' element={<AddDrinkPage />} />
           <Route path='my' element={<MyDrinksPage />} />
           <Route path='favorites' element={<FavoritesPage />} />

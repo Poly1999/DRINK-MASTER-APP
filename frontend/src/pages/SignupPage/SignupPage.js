@@ -49,6 +49,8 @@ const SignupPage = () => {
     }
   };
 
+  const isMobile = window.innerWidth <= 759;
+
   return (
     <div className='auth-page'>
       <Toaster />
@@ -91,6 +93,7 @@ const SignupPage = () => {
                     className='signup-input'
                     wrapperClassName='datepicker-wrapper'
                     popperPlacement='right-start'
+                    popperClassName='signup-datepicker'
                     showPopperArrow={false}
                     showIcon
                   />
