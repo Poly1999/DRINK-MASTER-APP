@@ -228,28 +228,12 @@ Full API documentation is available via Swagger UI at `/api-docs` when the serve
 
 ---
 
-## 📸 Screenshots
-
-### Home Page
-
-![Home Page](https://via.placeholder.com/800x450/161f37/ffffff?text=Home+Page)
-
-### Drinks Page
-
-![Drinks Page](https://via.placeholder.com/800x450/161f37/ffffff?text=Drinks+Page)
-
-### Add Drink
-
-![Add Drink](https://via.placeholder.com/800x450/161f37/ffffff?text=Add+Drink)
-
----
-
 ## 👩‍💻 Author
 
 **Polina Pikalova**
 
 - GitHub: [@Poly1999](https://github.com/Poly1999)
-- LinkedIn: [Polina Pikalova](https://linkedin.com/in/polina-pikalova)
+- LinkedIn: [Polina Pikalova](https://www.linkedin.com/in/polina-pikalova-366148375/)
 
 ---
 
